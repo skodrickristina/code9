@@ -8,7 +8,7 @@ provider "aws" {
 }
 
 terraform {
-  required_version = "~> 1.9.0"
+  required_version = "~> 1.9.5"
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -16,7 +16,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "runtothehils-state-delicate-gannet"
+    bucket = "mojbaketza-state-upward-akita"
     key    = "terraform/s3-site-using-module"
     region = "us-east-1"
   }
