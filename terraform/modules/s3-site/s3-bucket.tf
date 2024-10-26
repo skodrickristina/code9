@@ -49,6 +49,10 @@ resource "aws_s3_bucket_acl" "my-static-website" {
 
 # Add policy that will allow public access
 resource "aws_s3_bucket_policy" "static_website_policy" {
+    depends_on = [
+    aws_s3_bucket_ownership_controls.my-static-website,
+    aws_s3_bucket_public_access_block.my-static-website,
+  ]
   bucket = aws_s3_bucket.my-static-website.id
 
   policy = <<EOF

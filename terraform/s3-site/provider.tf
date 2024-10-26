@@ -1,14 +1,22 @@
 provider "aws" {
-  region  = local.region
+  region = local.region
+ default_tags {
+   tags = {
+     Environment = "Test"
+     Owner       = "TFProviders"
+     Project     = "Test"
+   }
+ }
+
 }
 
 provider "aws" {
-  region  = "us-east-1"
-  alias   = "us-east-1"
+  region = "eu-west-1"
+  alias  = "eu-west-1"
 }
 
 terraform {
-  required_version = "~> 1.5.0"
+  required_version = "~> 1.9.0"
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -16,7 +24,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "code9-vlada-state-file-s3-bucket"
+    bucket = "runtothehils-state-delicate-gannet"
     key    = "terraform/s3-site"
     region = "us-east-1"
   }
