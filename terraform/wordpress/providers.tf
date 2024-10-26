@@ -4,7 +4,7 @@ provider "aws" {
 }
 
 terraform {
-  required_version = "~> 1.5.0"
+  required_version = "~> 1.9.5"
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -12,7 +12,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "code9-vlada-state-file-s3-bucket"
+    bucket = "mojbaketza-state-upward-akita"
     key    = "terraform/wordpress"
     region = "us-east-1"
   }
